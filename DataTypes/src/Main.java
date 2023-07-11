@@ -1,4 +1,7 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.lang.Number;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,7 +19,7 @@ public class Main {
             и он позволяет закомментировать несколько строк кода
             или же часть строки кода.
         конец блочного комментария */
-        System.out.println("Hello" + " " + "World");
+        //System.out.println("Hello" + " " + "World");
 
         //Переменная (Variable) - это именованная область памяти, содержимое которой
         //                        может изменяться в процессе выполнения программы.
@@ -31,16 +34,16 @@ public class Main {
         //True  1
         //False 0
 
-        System.out.println(true);
+       /* System.out.println(true);
         System.out.println(false);
         System.out.println(Boolean.TRUE);
         System.out.println(Boolean.FALSE);
-        System.out.println(Boolean.TYPE);
+        System.out.println(Boolean.TYPE);*/
         //*/
 
         //II - Символьные типы: char (Character - Символ)
-        System.out.println(Character.SIZE);//Unicode 65536
-        System.out.println(Character.BYTES);//Unicode 65536
+        //System.out.println(Character.SIZE);//Unicode 65536
+        //System.out.println(Character.BYTES);//Unicode 65536
         System.out.printf("----------------------------------------------------\n");
         //III - Числовые типы
         //unsigned (беззнаковые) - предназначены для хранения только положительных целых чисел
@@ -49,20 +52,20 @@ public class Main {
         //  short   16 bit
         //  int     32 bit
         //  long    64 bit
-        System.out.println(Byte.SIZE);
+        /*System.out.println(Byte.SIZE);
         System.out.println(Byte.BYTES);
         System.out.println(Byte.MIN_VALUE);
         System.out.println(Byte.MAX_VALUE);
         System.out.println();
 
-        System.out.println(delimiter);
+        System.out.println(delimiter);*/
 
-        System.out.println("Hello" + "World");    //Конкатенация строк
+        //System.out.println("Hello" + "World");    //Конкатенация строк
 //        System.out.println("Переменная типа " + "int" + " занимает " +
 //                        Integer.BYTES + " Байт памяти (" + Integer.SIZE + " бит памяти)," +
 //                        "и принимает значения в диапазоне от" +
 //                        Integer.MIN_VALUE + " до " + Integer.MAX_VALUE);
-        System.out.println("Переменная типа %-6s занимает %d Байт памяти (%-3d бит памяти), и принимает значения в диапазоне от %d до %d".formatted("byte", Byte.BYTES, Byte.SIZE,Byte.MIN_VALUE, Byte.MAX_VALUE));
+        /*System.out.println("Переменная типа %-6s занимает %d Байт памяти (%-3d бит памяти), и принимает значения в диапазоне от %d до %d".formatted("byte", Byte.BYTES, Byte.SIZE,Byte.MIN_VALUE, Byte.MAX_VALUE));
         System.out.println("Переменная типа %-6s занимает %d Байт памяти (%-3d бит памяти), и принимает значения в диапазоне от %d до %d".formatted("short", Short.BYTES, Short.SIZE, Short.MIN_VALUE, Short.MAX_VALUE));
         System.out.println("Переменная типа %-6s занимает %d Байт памяти (%-3d бит памяти), и принимает значения в диапазоне от %d до %d".formatted("int", Integer.BYTES, Integer.SIZE, Integer.MIN_VALUE, Integer.MAX_VALUE));
         System.out.format("Переменная типа %-6s занимает %d Байт памяти (%-3d бит памяти), и принимает значения в диапазоне от %d до %d", "long", Long.BYTES, Long.SIZE, Long.MIN_VALUE, Long.MAX_VALUE);
@@ -70,8 +73,36 @@ public class Main {
         System.out.format("Переменная типа %-6s занимает %d Байт памяти (%-3d бит памяти), и принимает значения в диапазоне от %e до %e\n", "float", Float.BYTES, Float.SIZE, Float.MIN_VALUE, Float.MAX_VALUE);
         System.out.format("Переменная типа %-6s занимает %d Байт памяти (%-3d бит памяти), и принимает значения в диапазоне от %e до %e\n", "double", Double.BYTES, Double.SIZE, Double.MIN_VALUE, Double.MAX_VALUE);
         System.out.println(38e-4);
-        final double d = 12.56f;
-        System.out.println(d);
+        final double d = 12.56f;*/
+        //System.out.println(d);
 
+
+        //0) Создаем сканер, при помощи которого будем вводить данные с клавиатуры:
+        Scanner kb = new Scanner(System.in);
+        //System.out.print("Введите целое число: ");
+        //int num = kb.nextInt();
+        //System.out.print("Введите строку: ");
+        //String str = kb.nextLine();
+        //System.out.println(str + " " + num);
+        //1) Объявляем переменную, в которую будет вводиться денежная сумма:
+        double money;
+        //2) Перед вводом пользователь обзательно должен увидеть приглашение на ввод:
+        System.out.print("Введите сумму: ");
+        //3) Обеспечиваем ввод значения пользователем с клавиатуры:
+        money = kb.nextDouble();
+        money += 1e-5;    //прибавляем 1*10^-5, чтобы скорректировать число в периоде
+        //4) Проверяем ввод:
+        System.out.println(money);
+        //5) Разделение числа:
+        int rub = (int)money;   //явно преобразуем переменную 'money' в тип 'int'
+        int cop = (int)((money-rub)*100);
+        System.out.printf("С Вас %d грн., %d коп.\n", rub, cop);
+        int For;
+        /*
+        * 1. ABC...Zabc...z012...9_$;
+        * 2.
+        * 3. Имена переменных регистрозависимы;
+        * 4. Для именования переменных нельзя испольщовать ключевые слова языка Java;
+        * */
     }
 }
