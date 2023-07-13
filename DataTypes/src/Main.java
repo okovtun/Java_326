@@ -76,7 +76,7 @@ public class Main {
         final double d = 12.56f;*/
         //System.out.println(d);
 
-
+/*
         //0) Создаем сканер, при помощи которого будем вводить данные с клавиатуры:
         Scanner kb = new Scanner(System.in);
         //System.out.print("Введите целое число: ");
@@ -90,7 +90,7 @@ public class Main {
         System.out.print("Введите сумму: ");
         //3) Обеспечиваем ввод значения пользователем с клавиатуры:
         money = kb.nextDouble();
-        money += 1e-5;    //прибавляем 1*10^-5, чтобы скорректировать число в периоде
+        money += 1e-15;    //прибавляем 1*10^-5, чтобы скорректировать число в периоде
         //4) Проверяем ввод:
         System.out.println(money);
         //5) Разделение числа:
@@ -98,11 +98,32 @@ public class Main {
         int cop = (int)((money-rub)*100);
         System.out.printf("С Вас %d грн., %d коп.\n", rub, cop);
         int For;
+
+ */
         /*
         * 1. ABC...Zabc...z012...9_$;
         * 2.
         * 3. Имена переменных регистрозависимы;
         * 4. Для именования переменных нельзя испольщовать ключевые слова языка Java;
         * */
+
+        /*int a = 2;  //Init - Начало.
+        int b=3;
+        System.out.println(b);
+        double b;*/
+
+        int speed=0;
+        final int MAX_SPEED = 250;
+        speed = 60;
+        //MAX_SPEED=300;
+
+        System.out.println(((Object)512).getClass().getSimpleName());
+        System.out.println(((Object)512L).getClass().getSimpleName());
+        System.out.println(((Object).512).getClass().getSimpleName());
+        System.out.println(speed*.512);
+        System.out.println(((Object)speed).getClass().getSimpleName());
+        System.out.println(((Object)'+').getClass().getSimpleName());
+        System.out.println('+');
+
     }
 }
