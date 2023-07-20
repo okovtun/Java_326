@@ -72,7 +72,7 @@ public class Main {
         /*
         V) Операторы сравнения (Comparison operators)
          */
-        System.out.println(!true == false);
+       /* System.out.println(!true == false);
         System.out.println(true && true && true);
         int t = 20;
         Boolean rain = false;
@@ -84,6 +84,9 @@ public class Main {
         else
         {
             System.out.println("Сидим дома");
-        }
+        }*/
+        int i=3;
+        i = i++ + 1 + (i *= 2);
+        System.out.println(i);
     }
 }
