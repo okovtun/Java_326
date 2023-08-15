@@ -81,7 +81,7 @@ public class Main {
             System.out.println("Вы набрали %d %s".formatted(i, suffix(i)));
         }*/
 
-        /*int a;
+        int a;
         int b;
         int c;
         char s; //Sign - знак операции
@@ -94,7 +94,7 @@ public class Main {
         System.out.print("Введите второе число: ");
         b = kb.nextInt();
 
-        if(s == '+')
+       /*if(s == '+')
         {
             c=a+b;
         }
@@ -114,10 +114,30 @@ public class Main {
         {
             c = Integer.MIN_VALUE;
             System.out.println("Error: No operation");
-        }
-        System.out.printf("%d %c %d = %d", a, s, b, c);*/
+        }*/
 
-        System.out.print("Введите арифметическое выражение: ");
+       /* switch(s)
+        {
+            case '+': c = a + b; break;
+            case '-': c = a - b; break;
+            case '*': c = a * b; break;
+            case '/': c = a / b; break;
+            default: c = Integer.MIN_VALUE;
+                System.out.println("Error: No operation");
+        }
+
+        if(c != Integer.MIN_VALUE)          System.out.printf("%d %c %d = %d", a, s, b, c);*/
+
+        /*switch(s)
+        {
+            case '+': System.out.printf("%d + %d = %d\n", a, b, a + b); break;
+            case '-': System.out.printf("%d - %d = %d\n", a, b, a - b); break;
+            case '*': System.out.printf("%d * %d = %d\n", a, b, a * b); break;
+            case '/': System.out.printf("%d / %d = %d\n", a, b, a / b); break;
+            default:  System.out.println("No operation");
+        }*/
+
+        /*System.out.print("Введите арифметическое выражение: ");
         String expression = kb.nextLine();
 
 //        String[] numbers = expression.split("\\+\\-\\*\\/");
@@ -155,7 +175,7 @@ public class Main {
         {
             c = Integer.MIN_VALUE;
             System.out.println("Error: No operation");
-        }
+        }*/
 //        System.out.printf("%d %c %d = %d", a, s, b, c);
     }
 
