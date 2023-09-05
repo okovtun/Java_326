@@ -1,44 +1,82 @@
-package HomeWork;
-import java.util.Scanner;
 import java.util.Arrays;
-public class HomeWork15 {
+import java.util.Scanner;
+import java.util.Random;
+import java.util.stream.IntStream;
+public class Main {
     public static void main(String[] args) {
-        int sum = 0;
-        int min;
-        int max = 0;
-        /////////////////////////////////////////////////////
-        Scanner input = new Scanner(System.in);
-        System.out.print("1. Введите размер массива: ");
-        int n = input.nextInt();
-        int[]array = new int[n];
-        /////////////////////////////////////////////////////
-        for(int i = 0; i < array.length; i++){
-            System.out.printf("   Введите элемент массива индекса %d : ",i);
-            array[i] = input.nextInt();
-            sum += array[i];  //  Сумма массива
-            if(max < array[i]){ max = array[i];} // Максимальное значение
-        }//i < array.length
-        ////////////////////////////////////////////////////////
-        min = array[0];
-        for(int j = 0; j < array.length; j++ ) {
-            if(min > array[j]) min = array[j]; // Минимальное значение
+        Scanner kb=new Scanner (System.in);
+        int step;
+        int[] arr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        for ( int i = 0; i<arr.length; i++)
+        {
+            System.out.print(arr[i] + "\t");
         }
-        ///////////////////////////////////////////////////////
-        System.out.print("2. Вы ввели: ");
-        for(int num : array){   // Вывод на экран введенный массив через переменную num
-            System.out.print(num+" ");
-        }//num : array
-        System.out.print("\n   Массив: "+ Arrays.toString(array)); // вывод массива через toString
-        ///////////////////////////////////////////////////////////
-        for(int r = 0; r < array.length / 2; r++ ){  //делим массив
-            int init = array[r];                     // присваиваем переменной init значение из 0-го индекса массива
-            array[r]=array[array.length - r - 1];    // в 0-ой индекс помещаем значение последнего индекса массива
-            array[array.length - r - 1] = init;     //в последний индекс массива помещаем значение переменной
-        }//r < array.length / 2
-        ////////////////////////////////////////////////////////////
-        System.out.printf("\n3. элементы массива от конца к началу: %S",Arrays.toString(array));
-        System.out.printf("\n4. Сумма элементов массива: %d",sum);
-        System.out.printf("\n5. Среднеe-арифметическое элементов массива: %d",(sum/n));// среднее-арифметическое элементов массива
-        System.out.printf("\n6. МиНимальное значение массива: %d \n   МаКсимальное значение массива: %d",min,max);
+
+
+//  задача Сдвигаем массив влево
+        System.out.print("    Введите значение для сдвига влево:");
+        step= kb.nextInt();
+
+        for (int i = 0; i < step; i++)
+        {
+            int var = arr[0];
+            for (int j = 0; j < arr.length - 1; j++)
+            {
+                arr[j] = arr[j + 1];
+            }
+            arr[arr.length - 1] = var;
+        }
+
+        for ( int i = 0; i<arr.length; i++) // Печатаем результат
+        {
+            System.out.print(arr[i] + "\t");
+        }
+
+// задача Сдвигаем массив впрво
+
+        System.out.print("    Введите значение для сдвига вправо:");
+        step= kb.nextInt();
+
+
+        for (int i = 0; i < step; i++)
+        {
+            int var = arr[9];
+            for (int j = 9; j >0; j--)
+            {
+                arr[j] = arr[j - 1];
+            }
+            arr[0] = var;
+        }
+
+        for ( int i = 0; i<arr.length; i++) // Печатаем результат
+        {
+            System.out.print(arr[i] + "\t");
+        }
+        System.out.println();
+
+// задача Отсортировать массив в порядке возрастания
+        System.out.println("Сортируем массив в порядке возрастания");
+
+        int[] arr2 = new int[]{9, 4, 5, 7, 6, 45, 56, 8, 47 };
+        System.out.println(Arrays.toString(arr2)); // Печатаем массив :)
+
+
+
+        for (int i = 0; i < arr2.length-1; i++ )
+        {
+            int var=arr2[i];
+            for (int j = i; j < arr2.length; j++)
+            {
+                if (var>arr2[j])
+                {
+                    arr2[i]=arr2[j];
+                    arr2[j]=var;
+                }
+            }
+
+        }
+
+        System.out.println(Arrays.toString(arr2));
+
     }
 }

@@ -1,4 +1,5 @@
 //import java.util.Scanner;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 import java.util.Random;    //Random
@@ -75,5 +76,24 @@ public class Main {
             System.out.print(fib[i] + "\t");
         }
         System.out.println();*/
+
+        //Сортировка:
+        for(int i = 0; i < n; i++)  //счетчик 'i' выбирает элемент, в который нужно поместить минимальное значение
+        {
+            for(int j = i + 1; j < n; j++)  //счетчик 'j' перебирает оставшиеся элементы
+            {
+                //arr[i] - выбранный элемент
+                //arr[j] - перебираемый элемент
+                //Если переюираемый элемент меньше чем выбранный, меняем их местами.
+                if(arr[j] < arr[i])
+                {
+                    int buffer = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = buffer;
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(arr));
     }
 }
