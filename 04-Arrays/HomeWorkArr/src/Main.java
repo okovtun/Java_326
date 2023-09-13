@@ -1,82 +1,53 @@
-import java.util.Arrays;
-import java.util.Scanner;
 import java.util.Random;
-import java.util.stream.IntStream;
+import java.util.Scanner;
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        Scanner kb=new Scanner (System.in);
-        int step;
-        int[] arr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        for ( int i = 0; i<arr.length; i++)
+        Scanner kb = new Scanner(System.in);
+
+        System.out.print("Введите количество строк: ");
+        int rows = kb.nextInt();
+        System.out.print("Введите количество элементов строки: ");
+        int cols = kb.nextInt();
+
+        int[][] arr = new int[rows][cols];
+
+        Random rand = new Random(0);
+        for(int i = 0; i < rows; i++)
         {
-            System.out.print(arr[i] + "\t");
-        }
-
-
-//  задача Сдвигаем массив влево
-        System.out.print("    Введите значение для сдвига влево:");
-        step= kb.nextInt();
-
-        for (int i = 0; i < step; i++)
-        {
-            int var = arr[0];
-            for (int j = 0; j < arr.length - 1; j++)
+            for(int j = 0; j < cols; j++)
             {
-                arr[j] = arr[j + 1];
+                arr[i][j] = rand.nextInt(rows*cols);
             }
-            arr[arr.length - 1] = var;
         }
-
-        for ( int i = 0; i<arr.length; i++) // Печатаем результат
+        for(int i = 0; i < rows; i++)
         {
-            System.out.print(arr[i] + "\t");
-        }
-
-// задача Сдвигаем массив впрво
-
-        System.out.print("    Введите значение для сдвига вправо:");
-        step= kb.nextInt();
-
-
-        for (int i = 0; i < step; i++)
-        {
-            int var = arr[9];
-            for (int j = 9; j >0; j--)
+            for(int j = 0; j < cols; j++)
             {
-                arr[j] = arr[j - 1];
+                System.out.print(arr[i][j]+"\t");
             }
-            arr[0] = var;
+            System.out.println();
         }
-
-        for ( int i = 0; i<arr.length; i++) // Печатаем результат
-        {
-            System.out.print(arr[i] + "\t");
-        }
-        System.out.println();
-
-// задача Отсортировать массив в порядке возрастания
-        System.out.println("Сортируем массив в порядке возрастания");
-
-        int[] arr2 = new int[]{9, 4, 5, 7, 6, 45, 56, 8, 47 };
-        System.out.println(Arrays.toString(arr2)); // Печатаем массив :)
-
-
-
-        for (int i = 0; i < arr2.length-1; i++ )
-        {
-            int var=arr2[i];
-            for (int j = i; j < arr2.length; j++)
-            {
-                if (var>arr2[j])
-                {
-                    arr2[i]=arr2[j];
-                    arr2[j]=var;
+        System.out.println("Количество строк: " + arr.length);
+        System.out.println("Количество элементов строки: " + arr[0].length);
+        for (int i1 = 0; i1 < rows; i1++) {
+            for (int j1 = 0; j1 < cols; j1++) {
+                arr[i1][j1]=rand.nextInt(rows*cols);
+                boolean met_before = false;
+                for (int i2 = 0; i2 < rows; i2++) {
+                    for (int j2 = 0; j2 < cols; j2++) {
+                        if (arr[i1][j1] == arr[i2][j2]) {
+                            //i1--;
+                            j1--;
+                            met_before=true;
+                            break;
+                        }
+                    }
+                    if(met_before)break;
                 }
             }
-
         }
-
-        System.out.println(Arrays.toString(arr2));
-
+        System.out.println(Arrays.deepToString(arr));
     }
 }

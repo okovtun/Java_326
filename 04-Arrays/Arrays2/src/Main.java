@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -30,5 +31,34 @@ public class Main {
             }
             System.out.println();
         }
+        System.out.println("\n-------------------------------------------------\n");
+
+        int iterations = 0;
+        int exchanges = 0;
+        for(int i = 0; i < arr.length; i++)
+        {
+            for(int j = 0; j < arr[i].length; j++)
+            {
+                //arr[i][j] - выбранный элемент
+                for(int k = i; k < arr.length; k++)
+                {
+                    for(int l = k == i ? j : 0; l < arr[k].length; l++)
+                    {
+                        //arr[i][j] - выбранный элемент
+                        //arr[k][l] - перебираемый элемент
+                        iterations++;
+                        if(arr[k][l] < arr[i][j])
+                        {
+                            int buffer = arr[i][j];
+                            arr[i][j] = arr[k][l];
+                            arr[k][l] = buffer;
+                            exchanges++;
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println("Массив отсортирован за %d итераций, при этом сделано %d замен элементов".formatted(iterations, exchanges));
+        for(int i = 0; i < arr.length; i++)System.out.println(Arrays.toString(arr[i]));
     }
 }
