@@ -14,6 +14,11 @@ public class Main
         System.out.println("%d - %d = %d".formatted(a, b, Diff(a, b)));
         System.out.println("%d * %d = %d".formatted(a, b, Prod(a, b)));
         System.out.println("%d / %d = %f".formatted(a, b, Quot(a, b)));
+        System.out.println("%f ^ %d = %f".formatted((double)a, b, Power(a, b)));
+
+        System.out.print("Введите число: ");
+        int n = kb.nextInt();
+        System.out.println("%d! = %d".formatted( n, Factorial(n)));
     }
     static int Sum(int a, int b)
     {
@@ -35,5 +40,29 @@ public class Main
     {
         //Quotient - Частное
         return (double)a / b;
+    }
+    static int Factorial(int n)
+    {
+        int f = 1;
+        for(int i = 1; i <= n; i++)
+        {
+            f *= i;
+        }
+        return f;
+    }
+
+    static double Power(double a, int n)
+    {
+        double N = 1;
+        if(n < 0)
+        {
+            a = 1/a;
+            n = -n;
+        }
+        for(int i = 0; i < n; i++)
+        {
+            N *= a;
+        }
+        return N;
     }
 }
