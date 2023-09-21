@@ -17,6 +17,9 @@ public class Main<T> {
         Double[] brr = new Double[n];
         FillRand(brr, 0 , 100);
         Print(brr);
+
+        Character[] c_arr = new Character[]{'H', 'e', 'l', 'l', 'o'};
+        Print(c_arr);
     }
     static void FillRand(Integer[] arr)
     {
@@ -57,6 +60,15 @@ public class Main<T> {
             System.out.print(arr[i] + "\t");
         }
         System.out.println();
+    }
+    static<T> T Sum(T[] arr)
+    {
+        T sum = T();
+        for(int i = 0; i< arr.length; i++)
+        {
+            sum += arr[i];
+        }
+        return sum;
     }
     static<T> void Sort(T[] arr)
     {
