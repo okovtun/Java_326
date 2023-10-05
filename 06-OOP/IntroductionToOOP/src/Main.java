@@ -24,6 +24,23 @@ public class Main {
         System.out.println("Расстояние от точки 'B' до точки 'A': %f".formatted(B.distance(A)));
         System.out.println("Расстояние между точками 'A' и 'B': %f".formatted(Point.distance(A, B)));
         System.out.println("Расстояние между точками 'B' и 'A': %f".formatted(Point.distance(B, A)));
+
+        Point C;    //null
+        C = new Point();    //явно вызываем конструктор, создаем объект, и записываем адрес этого объекта в ссылку 'C'
+        C.print();
+
+        Point D = new Point(5);
+        D.print();
+
+        Point E = new Point(22,33);
+        E.print();
+        E.toString();
+        System.out.println(E.toString());
+        Object obj = new Object();
+        System.out.println(obj);
+
+        Point G = new Point(E);
+        System.out.println(G);
     }
 }
 class Point
@@ -46,6 +63,32 @@ class Point
     {
         this.y = y;
     }
+
+    //                  Constructors:
+    public Point()
+    {
+        System.out.println("DefaultConstructor:\t" + this.hashCode());
+    }
+    public Point(double x)
+    {
+        setX(x);
+        setY(x);
+        System.out.println("1ArgConstructor:\t" + this.hashCode());
+    }
+    public Point(double x, double y)
+    {
+        setX(x);
+        setY(y);
+        System.out.println("Constructor:\t\t"+this.hashCode());
+    }
+    public Point(Point other)
+    {
+        this.x = other.x;
+        this.y = other.y;
+        System.out.println("CopyConstructor:\t" + Integer.toHexString(this.hashCode()));
+    }
+
+    //                  Methods:
     public double distance(Point other)
     {
         //this
@@ -69,6 +112,7 @@ class Point
     {
         System.out.println("X = %f, Y = %f".formatted(x, y));
     }
+    public String toString(){ return "X = %f, Y = %f".formatted(x, y); }
 }
 
 /*
@@ -78,4 +122,24 @@ type name ( parameters )
     group-of-statements;
     ........;
 }
+*/
+
+/*
+---------------------------------------------------
+Constructor - это метод, который создает объект.
+Конструктор выделяет память под объект, и инициализирует его поля во время создания.
+Конструкторы бывают:
+    - с параметрами;
+    - без параметров;
+    - конмтруктор по умолчанию;
+    - контруктор копирования;
+
+Конструктор по умолчанию - это конструктор, который может быть вызван без параметров.
+Значения по умолчанию:
+    - у числовых типов - это '0';
+    - у boolean - это 'false';
+    - у ссылочных типов - это 'null';
+
+CopyConstructor - это конструктор который копирует объект
+---------------------------------------------------
 */
