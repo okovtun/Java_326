@@ -19,11 +19,23 @@ public class Main {
         E.print();*/
         Object obj;
 
-        int a = 2;
+        //int a = 2;
+        //System.out.println(a);
 
-        System.out.println(a);
         Fraction A = new Fraction(2,3,4);
-        System.out.println(A);
         Fraction B = new Fraction(3,4,5);
+
+        /*double a = 2.75;
+        double b = 3.8;
+        double c = a + b;   //+ - оператор "сложить" (возвращает сумму двух чисел)
+        System.out.println(c);
+        a += b; //+= - оператор "прибавить" (к левой операнде прибавляет правую операнду)
+        System.out.println(a);*/
+
+        Fraction C = Fraction.add(A, B);
+        A.print();
+        B.print();
+        C.print();
+        //System.out.println(C);
     }
 }
