@@ -55,13 +55,23 @@ public class Student extends Human
         System.out.println("SConstructor:\t" + Integer.toHexString(hashCode()));
     }
 
-    public Student(String lastName, String firstName, int age) {
+    /*public Student(String lastName, String firstName, int age) {
         super(lastName, firstName, age);
+    }*/
+
+    public Student(Student other)
+    {
+        super(other);
+        this.speciality = other.speciality;
+        this.group = other.group;
+        this.rating = other.rating;
+        this.attendance = other.attendance;
+        System.out.println("SCopyConstructor:\t" + Integer.toHexString(hashCode()));
     }
 
     @Override
-    public String toString() {
-        return super.toString() + " " +
-                speciality + ' ' + group + ' ' + rating + " " + attendance;
+    public String toString()
+    {
+        return super.toString() + " " + speciality + ' ' + group + ' ' + rating + " " + attendance;
     }
 }

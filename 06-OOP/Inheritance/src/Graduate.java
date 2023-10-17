@@ -21,6 +21,12 @@ public class Graduate extends Student
         setSubject(subject);
         System.out.println("GConstructor:\t" + Integer.toHexString(hashCode()));
     }
+    public Graduate(Graduate other)
+    {
+        super(other);
+        this.subject = other.subject;
+    }
+    @Override
     public String toString()
     {
         return super.toString() + " " + subject;
