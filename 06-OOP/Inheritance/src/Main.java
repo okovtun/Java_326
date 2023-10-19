@@ -1,6 +1,9 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main
 {
@@ -36,7 +39,7 @@ public class Main
         //Generalisation - обобщение объектов.
 
 
-        Specialist leo = new Specialist("Rosenberg", "Ken", 35, "Lower", "Vice", 35, 22, "No money - no honey", 3);
+        /*Specialist leo = new Specialist("Rosenberg", "Ken", 35, "Lower", "Vice", 35, 22, "No money - no honey", 3);
         Human[] group = new Human[]
                 {
                         new Student("Pinkman", "Jessie", 25, "Chemistry", "WW_220", 90, 95),
@@ -54,7 +57,8 @@ public class Main
             System.out.println(((Object)group[i]).getClass().getSimpleName() + ":\t" + group[i] + ";");
         }
 
-        save(group, "group.txt");
+        save(group, "group.txt");*/
+        load("group.txt");
     }
     public static void save(Human[] group, String filename)throws IOException
     {
@@ -75,5 +79,29 @@ public class Main
         String command = "C:\\Program Files\\Notepad++\\notepad++ " + filename;
 
         Process process = Runtime.getRuntime().exec(command);
+    }
+    public static Human[] load(String filename) throws FileNotFoundException {
+        //Human[] group = null;
+        ArrayList<Human> al_group = new ArrayList<>();
+        File file = new File(filename);
+        Scanner scanner = new Scanner(file);    //Создаем и открываем поток чтения из файла
+        while(scanner.hasNextLine())
+        {
+            String buffer = scanner.nextLine();
+            if(buffer.isEmpty())continue;
+            String[] values = buffer.split("[:,;]");
+            //System.out.println(buffer);
+//            System.out.print(values.length + ":\t");
+//            for (int i = 0; i < values.length; i++) System.out.print(values[i] + "\t");
+//            System.out.println();
+            Human member = HumanFactory.Create(values[0]);
+            member.init(values);
+            //System.out.println(((Object) member).getClass().getSimpleName());
+            //al_group.add(HumanFactory.Create(values[0]));
+            //al_group.get(al_group.size() - 1).init(values);
+        }
+        scanner.close();    //Закрываем поток
+        Human[] group = new Human[al_group.size()];
+        return al_group.toArray(group);
     }
 }

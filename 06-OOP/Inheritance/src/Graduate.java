@@ -26,6 +26,13 @@ public class Graduate extends Student
         super(other);
         this.subject = other.subject;
     }
+
+    @Override
+    public void init(String[] values) {
+        super.init(values);
+        subject = values[8];
+    }
+
     @Override
     public String toString()
     {

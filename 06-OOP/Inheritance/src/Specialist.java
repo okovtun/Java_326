@@ -35,6 +35,12 @@ public class Specialist extends Graduate
     }
 
     @Override
+    public void init(String[] values) {
+        super.init(values);
+        grade = Integer.parseInt(values[9]);
+    }
+
+    @Override
     public String toString() {
         return super.toString() + ", " + grade;
     }

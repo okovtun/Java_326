@@ -27,6 +27,13 @@ public class Teacher extends Human
     }
 
     @Override
+    public void init(String[] values) {
+        super.init(values);
+        speciality = values[4];
+        experience = Integer.parseInt(values[5]);
+    }
+
+    @Override
     public String toString() {
         return super.toString() + ", " + speciality + ", " + experience;
     }
