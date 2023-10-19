@@ -72,6 +72,6 @@ public class Student extends Human
     @Override
     public String toString()
     {
-        return super.toString() + " " + speciality + ' ' + group + ' ' + rating + " " + attendance;
+        return super.toString() + ", " + speciality + ", " + group + ", " + rating + ", " + attendance;
     }
 }

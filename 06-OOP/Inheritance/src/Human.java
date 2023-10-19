@@ -44,6 +44,6 @@ public class Human {
 
     public String toString()
     {
-        return lastName + " " + firstName + " " + age;
+        return lastName + ", " + firstName + ", " + age;
     }
 }

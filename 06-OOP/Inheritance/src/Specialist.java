@@ -36,6 +36,6 @@ public class Specialist extends Graduate
 
     @Override
     public String toString() {
-        return super.toString() + " grade: " + grade;
+        return super.toString() + ", " + grade;
     }
 }

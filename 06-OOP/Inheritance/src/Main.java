@@ -34,7 +34,9 @@ public class Main
 
         //upcast - преобразование дочернего объекта в базовый.
         //Generalisation - обобщение объектов.
-        Specialist leo = new Specialist("Rosenberg", "Ken", 35, "Lower", "Vice", 35, 22, "Get money", 3);
+
+
+        Specialist leo = new Specialist("Rosenberg", "Ken", 35, "Lower", "Vice", 35, 22, "No money - no honey", 3);
         Human[] group = new Human[]
                 {
                         new Student("Pinkman", "Jessie", 25, "Chemistry", "WW_220", 90, 95),
@@ -49,10 +51,14 @@ public class Main
         //Downcast - преобразование базового объекта в дочерний класс
         for(int i = 0; i < group.length; i++)
         {
-            System.out.println(group[i]);
+            System.out.println(((Object)group[i]).getClass().getSimpleName() + ":\t" + group[i] + ";");
         }
 
-        File file = new File("group.txt");
+        save(group, "group.txt");
+    }
+    public static void save(Human[] group, String filename)throws IOException
+    {
+        File file = new File(filename);
         System.out.println(file.getAbsoluteFile());
         file.delete();
         file.createNewFile();
@@ -61,10 +67,13 @@ public class Main
 
         for(int i = 0 ; i < group.length; i++)
         {
-            writer.write(group[i].toString());
+            writer.write(((Object)group[i]).getClass().getSimpleName() + ":\t" + group[i].toString() + ";");
             writer.write('\n');
         }
-
         writer.close(); //Потоки обязательно нужно закрывать
+
+        String command = "C:\\Program Files\\Notepad++\\notepad++ " + filename;
+
+        Process process = Runtime.getRuntime().exec(command);
     }
 }

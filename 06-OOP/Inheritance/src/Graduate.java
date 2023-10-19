@@ -29,6 +29,6 @@ public class Graduate extends Student
     @Override
     public String toString()
     {
-        return super.toString() + " " + subject;
+        return super.toString() + ", " + subject;
     }
 }
