@@ -30,7 +30,7 @@ public class Teacher extends Human
     public void init(String[] values) {
         super.init(values);
         speciality = values[4];
-        experience = Integer.parseInt(values[5]);
+        experience = Integer.parseInt(values[5].trim());
     }
 
     @Override

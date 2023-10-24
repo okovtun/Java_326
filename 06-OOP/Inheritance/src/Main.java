@@ -58,7 +58,12 @@ public class Main
         }
 
         save(group, "group.txt");*/
-        load("group.txt");
+        Human[] group = load("group.txt");
+        System.out.println(group.length);
+        for(int i = 0; i < group.length; i++)
+        {
+            System.out.println(group[i]);
+        }
     }
     public static void save(Human[] group, String filename)throws IOException
     {
@@ -90,6 +95,9 @@ public class Main
             String buffer = scanner.nextLine();
             if(buffer.isEmpty())continue;
             String[] values = buffer.split("[:,;]");
+            values[1] = values[1].replace("\t", "");
+            for(int i = 0; i < values.length; i++)
+                values[i].trim();
             //System.out.println(buffer);
 //            System.out.print(values.length + ":\t");
 //            for (int i = 0; i < values.length; i++) System.out.print(values[i] + "\t");
@@ -99,9 +107,11 @@ public class Main
             //System.out.println(((Object) member).getClass().getSimpleName());
             //al_group.add(HumanFactory.Create(values[0]));
             //al_group.get(al_group.size() - 1).init(values);
+            al_group.add(member);
         }
         scanner.close();    //Закрываем поток
         Human[] group = new Human[al_group.size()];
+        System.out.println(al_group.size());
         return al_group.toArray(group);
     }
 }

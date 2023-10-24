@@ -74,8 +74,8 @@ public class Student extends Human
         super.init(values);
         speciality = values[4];
         group = values[5];
-        rating = Double.parseDouble(values[6]);
-        attendance = Double.parseDouble(values[7]);
+        rating = Double.parseDouble(values[6].trim());
+        attendance = Double.parseDouble(values[7].trim());
     }
 
     @Override

@@ -46,7 +46,7 @@ public class Human {
     {
         lastName = values[1];
         firstName = values[2];
-        age = Integer.parseInt(values[3]);
+        age = Integer.parseInt(values[3].trim());
     }
     public String toString()
     {
