@@ -1,4 +1,4 @@
-import java.io.File;
+//import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileWriter;
@@ -38,7 +38,6 @@ public class Main
         //upcast - преобразование дочернего объекта в базовый.
         //Generalisation - обобщение объектов.
 
-
         /*Specialist leo = new Specialist("Rosenberg", "Ken", 35, "Lower", "Vice", 35, 22, "No money - no honey", 3);
         Human[] group = new Human[]
                 {
@@ -58,14 +57,22 @@ public class Main
         }
 
         save(group, "group.txt");*/
-        Human[] group = load("group.txt");
+
+        /*Human[] group = load("group.txt");
         System.out.println(group.length);
+        for(int i = 0; i < group.length; i++)
+        {
+            System.out.println(group[i]);
+        }*/
+
+        File file = new File("group.txt");
+        Human[] group = file.load();
         for(int i = 0; i < group.length; i++)
         {
             System.out.println(group[i]);
         }
     }
-    public static void save(Human[] group, String filename)throws IOException
+    /*public static void save(Human[] group, String filename)throws IOException
     {
         File file = new File(filename);
         System.out.println(file.getAbsoluteFile());
@@ -113,5 +120,9 @@ public class Main
         Human[] group = new Human[al_group.size()];
         System.out.println(al_group.size());
         return al_group.toArray(group);
-    }
+    }*/
 }
+/*
+    SOLID:
+    S - Single Responsibility Principle (Принцип единой ответственности)
+*/
