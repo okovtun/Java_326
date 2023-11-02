@@ -12,8 +12,15 @@ public class Main {
         ForwardList list = new ForwardList();
         for(int i = 0; i < n; i++)
         {
+            //list.push_back(rand.nextInt(100));
             list.push_front(rand.nextInt(100));
         }
+        list.print();
+        System.out.print("Введите значение добавляемого элемента: ");
+        int value = kb.nextInt();
+        System.out.print("Введите индекс добавляемого элемента: ");
+        int index = kb.nextInt();
+        list.insert(value, index);
         list.print();
     }
 }
