@@ -1,30 +1,30 @@
-public class Element
+public class Element<T> //T - Generic type
 {
-    int Data;
-    Element Next;
+    T Data;
+    Element<T> Next;
 
-    public int getData() {
+    public T getData() {
         return Data;
     }
 
-    public void setData(int data) {
+    public void setData(T data) {
         Data = data;
     }
 
-    public Element getNext() {
+    public Element<T> getNext() {
         return Next;
     }
 
-    public void setNext(Element next) {
+    public void setNext(Element<T> next) {
         Next = next;
     }
-    public Element(int Data)
+    public Element(T Data)
     {
         setData(Data);
         setNext(null);
         //System.out.println("EConstructor:\t" + Integer.toHexString(this.hashCode()));
     }
-    public Element(int Data, Element Next)
+    public Element(T Data, Element<T> Next)
     {
         setData(Data);
         setNext(Next);
