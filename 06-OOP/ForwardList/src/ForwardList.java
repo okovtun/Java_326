@@ -8,7 +8,27 @@ public class ForwardList
         size = 0;
         System.out.println("LConstructor:\t" + Integer.toHexString(hashCode()));
     }
-
+    ForwardList(ForwardList other)
+    {
+        System.out.println("LCopyConstructor:" + Integer.toHexString(hashCode()));
+        //Shallow copy - Поверхностное копирование
+        //this.Head = other.Head;
+        //this.size = other.size;
+        for(Element Temp = other.Head; Temp != null; Temp = Temp.getNext())
+            this.push_front(Temp.getData());
+        reverse();
+    }
+    public void reverse()
+    {
+        ForwardList reverse = new ForwardList();
+        while(Head != null)
+        {
+            reverse.push_front(Head.Data);
+            pop_front();
+        }
+        this.Head = reverse.Head;
+        reverse.Head = null;
+    }
     public void push_front(int Data)
     {
         /*Element New = new Element(Data);
