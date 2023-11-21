@@ -10,13 +10,13 @@ public class Tree
             Data = data;
             Left = null;
             Right = null;
-            System.out.println("EConstructor:\t" + Integer.toHexString(hashCode()));
+            //System.out.println("EConstructor:\t" + Integer.toHexString(hashCode()));
         }
 
         @Override
         protected void finalize()
         {
-            System.out.println("EDestructor:"+Integer.toHexString(hashCode()));
+//            System.out.println("EDestructor:"+Integer.toHexString(hashCode()));
         }
     }
     protected Element Root;
@@ -29,6 +29,14 @@ public class Tree
     {
         Root = null;
         System.out.println("TConstructor:\t"+Integer.toHexString(hashCode()));
+    }
+    public  Tree(int[] arr)
+    {
+        for(int i : arr)
+        {
+            insert(i, Root);
+        }
+        System.out.println("Constructor:\t"+Integer.toHexString(hashCode()));
     }
     public void insert(int Data)
     {
@@ -53,21 +61,37 @@ public class Tree
     }
     public void erase(int Data)
     {
-        erase(Data, Root);
+        erase(Data, Root, null);
     }
-    private void erase(int Data, Element Root)
+    private void erase(int Data, Element Root, Element Parent)
     {
         if(Root == null)return;
+        erase(Data, Root.Left, Root);
+        erase(Data, Root.Right, Root);
         if(Data == Root.Data)
         {
             if(Root.Left == Root.Right)
             {
                 Root = null;
+                if(Parent!=null)
+                {
+                    if(Data == Parent.Left.Data)Parent.Left = null;
+                    if(Data == Parent.Right.Data)Parent.Right = null;
+                }
                 System.gc();
             }
             else
             {
-
+                if(count(Root.Left)>count(Root.Right))
+                {
+                    Root.Data = maxValue(Root.Left);
+                    erase(maxValue(Root.Left), Root.Left, Root);
+                }
+                else
+                {
+                    Root.Data = minValue(Root.Right);
+                    erase(minValue(Root.Right), Root.Right, Root);
+                }
             }
         }
     }
@@ -121,6 +145,22 @@ public class Tree
     public double avg()
     {
         return (double)sum(Root)/count(Root);
+    }
+    public int depth()
+    {
+        return depth(Root);
+    }
+    private int depth(Element Root)
+    {
+        if(Root == null)return 0;
+        /*if(depth(Root.Left)+1 > depth(Root.Right)+1)
+            return depth(Root.Left) + 1;
+        else
+            return depth(Root.Right) + 1;*/
+
+        int l_depth = depth(Root.Left)+1;
+        int r_depth = depth(Root.Right)+1;
+        return l_depth>r_depth ? l_depth : r_depth;
     }
     public void print()
     {
