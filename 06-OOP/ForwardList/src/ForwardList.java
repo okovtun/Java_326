@@ -51,14 +51,14 @@ public class ForwardList
         Temp.setNext(new Element(Data));
         size++;
     }
-    void insert(int Data, int Index)
+    void insert(int Data, int Index)throws Exception
     {
         if(Index == 0)
         {
             push_front(Data);
             return;
         }
-        if(Index > size)return;
+        if(Index > size)throw new Exception("Out of range exception inserting element");
         Element Temp = Head;
         for(int i = 0; i < Index - 1; i++)Temp = Temp.getNext();
         /*Element New = new Element(Data);

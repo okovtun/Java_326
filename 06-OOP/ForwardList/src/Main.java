@@ -16,12 +16,19 @@ public class Main {
             list.push_front(rand.nextInt(100));
         }
         //list.print();
-        /*System.out.print("Введите значение добавляемого элемента: ");
+        try
+        {
+        System.out.print("Введите значение добавляемого элемента: ");
         int value = kb.nextInt();
         System.out.print("Введите индекс добавляемого элемента: ");
         int index = kb.nextInt();
-        list.insert(value, index);
-        list.print();*/
+            list.insert(value, index);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+        list.print();
         long start_time = System.nanoTime();
         ForwardList list2 = new ForwardList(list);
         long end_time = System.nanoTime();
